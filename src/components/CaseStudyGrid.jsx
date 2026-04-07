@@ -15,7 +15,7 @@ const hrExpertiseData = [
     title: "Strategic Analytics & HQ Alignment",
     description: "Kategori ini adalah nilai jual utama untuk perusahaan multinasional yang membutuhkan kemampuan analisis data tingkat tinggi.",
     highlights: [
-      { label: "Global Reporting & Alignment", details: "Personnel Monthly Report, Annual Report, dan Variation Report (Koordinasi langsung dengan HQ - TPE)." },
+      { label: "Global Reporting & Alignment", details: "Personnel Monthly Report, Annual Report, dan Variation Report (TPE HQ)." },
       { label: "Manpower & Budget Planning", details: "Manpower Budget, Cost & Wages Increase Analysis." },
       { label: "HR Metrics & Analytics", details: "Turnover Rate Analysis." },
       { label: "Organizational Design", details: "Pemetaan dan penyesuaian Struktur Organisasi MBPT." }
@@ -40,7 +40,7 @@ const hrExpertiseData = [
     description: "Mengelola siklus hidup karyawan secara komprehensif, dari awal masuk hingga pengembangan karier dan terminasi.",
     highlights: [
       { label: "Performance & Succession", details: "Performance Evaluation, Evaluation Seniority, Cultivate Plan, dan Retiring & Succession Plan." },
-      { label: "Training & Certification", details: "Training Karyawan, Sertifikasi, Training Report Probation, Kursus Bahasa (Eng & Mandarin)." },
+      { label: "Training & Certification", details: "Training Karyawan, Sertifikasi, Training Report Probation, Kursus Bahasa." },
       { label: "Mobility & Compensation", details: "MN TRANSFER, Rekom Internal, penentuan Salary Newcomer." },
       { label: "Strategic Offboarding", details: "Pengumuman Pensiun dan eksekusi terminasi yang smooth." }
     ]
@@ -83,22 +83,22 @@ const CaseStudyGrid = () => {
           {hrExpertiseData.map((study, index) => {
             const IconComponent = study.icon;
             return (
-              <Grid item xs={12} sm={6} md={4} key={index}>
+              <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex' }}>
                 <Card 
                   elevation={2}
                   sx={{ 
-                    height: '100%', 
-                    borderRadius: '16px', 
-                    transition: '0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    flexGrow: 1,
                     display: 'flex',
                     flexDirection: 'column',
+                    borderRadius: '16px', 
+                    transition: '0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                     '&:hover': {
                       transform: 'translateY(-5px)',
                       boxShadow: 6,
                     }
                   }}
                 >
-                  <CardContent sx={{ p: 4, display: 'flex', flexDirection: 'column', height: '100%' }}>
+                  <CardContent sx={{ p: 4, display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 3 }}>
                       <IconComponent color="primary" sx={{ fontSize: 24 }} />
                       <Chip 
@@ -110,49 +110,50 @@ const CaseStudyGrid = () => {
                       />
                     </Box>
 
-                    <Typography variant="h5" sx={{ fontWeight: 800, mb: 1, color: 'text.primary', flexGrow: 0, lineHeight: 1.2 }}>
+                    <Typography variant="h5" sx={{ fontWeight: 800, mb: 1, color: 'text.primary', lineHeight: 1.2 }}>
                       {study.title}
                     </Typography>
 
-                    <Typography variant="body2" color="text.secondary" sx={{ mt: 1, mb: 2, lineHeight: 1.6, flexGrow: 0 }}>
+                    <Typography variant="body2" color="text.secondary" sx={{ mt: 1, mb: 3, lineHeight: 1.7 }}>
                       {study.description}
                     </Typography>
 
-                    <Divider sx={{ my: 2 }} />
+                    <Divider sx={{ mb: 3 }} />
 
                     <Paper 
                       variant="outlined" 
                       sx={{ 
                         bgcolor: '#f8fafc', 
-                        p: 2, 
+                        p: 2.5, 
                         borderRadius: 2, 
-                        mb: 3,
+                        mb: 4,
                         border: '1px solid #E2E8F0',
-                        flexGrow: 1
                       }}
                     >
                       {study.highlights.map((item, idx) => (
-                        <Box key={idx} sx={{ mb: 1.5, '&:last-child': { mb: 0 } }}>
-                          <Typography variant="body2" sx={{ lineHeight: 1.5 }}>
+                        <Box key={idx} sx={{ mb: 2, '&:last-child': { mb: 0 } }}>
+                          <Typography variant="body2" sx={{ lineHeight: 1.6, fontSize: '0.8125rem' }}>
                             <strong>{item.label}:</strong> {item.details}
                           </Typography>
                         </Box>
                       ))}
                     </Paper>
 
-                    <Button 
-                      variant="text" 
-                      endIcon={<ArrowForwardIcon />} 
-                      sx={{ 
-                        justifyContent: 'flex-start', 
-                        fontWeight: 900, 
-                        p: 0, 
-                        minWidth: 0,
-                        '&:hover': { bgcolor: 'transparent', color: 'primary.dark' }
-                      }}
-                    >
-                      View Full Details
-                    </Button>
+                    <Box sx={{ mt: 'auto' }}>
+                      <Button 
+                        variant="text" 
+                        endIcon={<ArrowForwardIcon />} 
+                        sx={{ 
+                          justifyContent: 'flex-start', 
+                          fontWeight: 900, 
+                          p: 0, 
+                          minWidth: 0,
+                          '&:hover': { bgcolor: 'transparent', color: 'primary.dark' }
+                        }}
+                      >
+                        View Full Details
+                      </Button>
+                    </Box>
                   </CardContent>
                 </Card>
               </Grid>
