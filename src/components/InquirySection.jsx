@@ -51,81 +51,97 @@ const InquirySection = () => {
               Currently open for strategic consulting or senior-level opportunities in HR and Industrial Relations.
             </Typography>
 
-            {/* Optimized Form Layout: Tight Grid (spacing={2}) */}
-            <Box component="form" noValidate sx={{ width: '100%', maxWidth: '750px' }}>
-              <Grid container spacing={2} sx={{ mb: 2.5 }}>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    placeholder="Full Name"
-                    variant="outlined"
-                    sx={{
-                      bgcolor: '#111827',
-                      '& .MuiOutlinedInput-root': {
-                        color: 'white',
-                        '& fieldset': { borderColor: '#1e293b' },
-                        '&:hover fieldset': { borderColor: '#334155' },
-                        '&.Mui-focused fieldset': { borderColor: '#D9B061' },
-                      },
-                      '& .MuiInputBase-input::placeholder': { color: '#64748b', opacity: 1 }
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12} sm={6}>
-                  <TextField
-                    fullWidth
-                    placeholder="Email Address"
-                    variant="outlined"
-                    sx={{
-                      bgcolor: '#111827',
-                      '& .MuiOutlinedInput-root': {
-                        color: 'white',
-                        '& fieldset': { borderColor: '#1e293b' },
-                        '&:hover fieldset': { borderColor: '#334155' },
-                        '&.Mui-focused fieldset': { borderColor: '#D9B061' },
-                      },
-                      '& .MuiInputBase-input::placeholder': { color: '#64748b', opacity: 1 }
-                    }}
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextField
-                    fullWidth
-                    multiline
-                    rows={6}
-                    placeholder="Message"
-                    variant="outlined"
-                    sx={{
-                      bgcolor: '#111827',
-                      '& .MuiOutlinedInput-root': {
-                        color: 'white',
-                        '& fieldset': { borderColor: '#1e293b' },
-                        '&:hover fieldset': { borderColor: '#334155' },
-                        '&.Mui-focused fieldset': { borderColor: '#D9B061' },
-                      },
-                      '& .MuiInputBase-input::placeholder': { color: '#64748b', opacity: 1 }
-                    }}
-                  />
-                </Grid>
-              </Grid>
+            {/* Robust Flexbox Layout: Replaces MUI Grid to Fix Live Site Wrapping */}
+            <Box 
+              component="form" 
+              noValidate 
+              sx={{ 
+                width: '100%', 
+                maxWidth: '850px',
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 2 // Solid tight gap control
+              }}
+            >
+              {/* Row 1: Full Name & Email Address (50% each on desktop) */}
+              <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 8px)' } }}>
+                <TextField
+                  fullWidth
+                  placeholder="Full Name"
+                  variant="outlined"
+                  sx={{
+                    bgcolor: '#111827',
+                    '& .MuiOutlinedInput-root': {
+                      color: 'white',
+                      height: '56px',
+                      '& fieldset': { borderColor: '#1e293b' },
+                      '&:hover fieldset': { borderColor: '#334155' },
+                      '&.Mui-focused fieldset': { borderColor: '#D9B061' },
+                    },
+                    '& .MuiInputBase-input::placeholder': { color: '#64748b', opacity: 1 }
+                  }}
+                />
+              </Box>
 
-              {/* Action Button: Exact Gold/Rectangular Style */}
-              <Button
-                variant="contained"
-                sx={{
-                  bgcolor: '#EAC583', // Exact Gold/Cream palette
-                  color: 'black',
-                  fontWeight: 900,
-                  px: 4.5,
-                  py: 1.8,
-                  borderRadius: '2px', // Professional rectangular look
-                  textTransform: 'none',
-                  fontSize: '1rem',
-                  '&:hover': { bgcolor: '#D9B061' }
-                }}
-              >
-                Send Inquiry
-              </Button>
+              <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 8px)' } }}>
+                <TextField
+                  fullWidth
+                  placeholder="Email Address"
+                  variant="outlined"
+                  sx={{
+                    bgcolor: '#111827',
+                    '& .MuiOutlinedInput-root': {
+                      color: 'white',
+                      height: '56px',
+                      '& fieldset': { borderColor: '#1e293b' },
+                      '&:hover fieldset': { borderColor: '#334155' },
+                      '&.Mui-focused fieldset': { borderColor: '#D9B061' },
+                    },
+                    '& .MuiInputBase-input::placeholder': { color: '#64748b', opacity: 1 }
+                  }}
+                />
+              </Box>
+
+              {/* Row 2: Message (100% width forced) */}
+              <Box sx={{ width: '100%' }}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={6}
+                  placeholder="Message"
+                  variant="outlined"
+                  sx={{
+                    bgcolor: '#111827',
+                    '& .MuiOutlinedInput-root': {
+                      color: 'white',
+                      '& fieldset': { borderColor: '#1e293b' },
+                      '&:hover fieldset': { borderColor: '#334155' },
+                      '&.Mui-focused fieldset': { borderColor: '#D9B061' },
+                    },
+                    '& .MuiInputBase-input::placeholder': { color: '#64748b', opacity: 1 }
+                  }}
+                />
+              </Box>
+
+              {/* Action Button: Pushed below the flex container or part of it */}
+              <Box sx={{ width: '100%', mt: 1 }}>
+                <Button
+                  variant="contained"
+                  sx={{
+                    bgcolor: '#EAC583', // Exact Gold/Cream palette
+                    color: 'black',
+                    fontWeight: 900,
+                    px: 4.5,
+                    py: 1.8,
+                    borderRadius: '2px', // Professional rectangular look
+                    textTransform: 'none',
+                    fontSize: '1rem',
+                    '&:hover': { bgcolor: '#D9B061' }
+                  }}
+                >
+                  Send Inquiry
+                </Button>
+              </Box>
             </Box>
           </Grid>
         </Grid>
