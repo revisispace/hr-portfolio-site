@@ -29,12 +29,12 @@ const CaseStudiesPreview = () => {
                 width: '100%',
                 aspectRatio: '16/10',
                 bgcolor: '#0F172A',
-                borderRadius: '24px',
+                borderRadius: '16px',
                 overflow: 'hidden',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                p: { xs: 3, md: 5 },
+                p: { xs: 1.5, md: 2 },
                 boxShadow: '0 40px 100px -20px rgba(15, 23, 42, 0.25)',
               }}
             >
@@ -46,7 +46,7 @@ const CaseStudiesPreview = () => {
                   width: '100%', 
                   height: '100%', 
                   objectFit: 'cover',
-                  borderRadius: '12px', 
+                  borderRadius: '10px', 
                   boxShadow: 10 
                 }}
               />
