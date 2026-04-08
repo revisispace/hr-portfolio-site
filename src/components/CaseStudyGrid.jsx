@@ -4,66 +4,69 @@ import {
   Gavel as GavelIcon, 
   Psychology as PsychologyIcon, 
   Favorite as FavoriteIcon, 
-  FlightTakeoff as FlightTakeoffIcon,
+  Policy as PolicyIcon,
   ArrowForward as ArrowForwardIcon 
 } from '@mui/icons-material';
 
 const hrExpertiseData = [
   {
     category: "Global HR Operations & Analytics",
-    icon: PublicIcon,
-    title: "Global HR Operations & Analytics",
-    description: "Aligning local HR operations with global standards through precise data analytics and comprehensive strategic reporting.",
+    icon: PublicIcon, 
+    title: "Strategic Analytics & HQ Alignment",
+    description: "Aligning local HR operations with global standards through precise data analytics, HRIS optimization, and comprehensive strategic reporting.",
     highlights: [
-      { label: "Global Reporting & Alignment", details: "Personnel Monthly Report, Annual Report, dan Variation Report (TPE HQ)." },
-      { label: "Manpower & Budget Planning", details: "Manpower Budget, Cost & Wages Increase Analysis." },
-      { label: "HR Metrics & Analytics", details: "Turnover Rate Analysis." },
-      { label: "Organizational Design", details: "Pemetaan dan penyesuaian Struktur Organisasi MBPT." }
+      { label: "Global & Internal Reporting", details: "Managed comprehensive HR metrics (turnover, headcount) for internal stakeholders and Evergreen HQ Taipei." },
+      { label: "HRIS Optimization", details: "Streamlined HR data and payroll administration using Andal Paymaster (APM)." },
+      { label: "Policy Development", details: "Drove continuous policy improvements and disseminated corporate regulations via official Circulars." },
+      { label: "HR Administration", details: "Oversaw end-to-end personnel data management, employee transitions, and workforce planning." }
     ]
   },
   {
-    category: "Industrial Relations & Compliance",
-    icon: GavelIcon,
-    title: "Industrial Relations & Compliance",
-    description: "Ensuring regulatory compliance and mitigating corporate risk through a decisive, ethical, and measured approach to industrial relations.",
+    category: "Industrial Relations & Dispute Resolution",
+    icon: GavelIcon, 
+    title: "Dispute Resolution & Labor Relations",
+    description: "Safeguarding corporate stability by managing end-to-end labor disputes, from bipartite mediation to Industrial Relations Court (PHI).",
     highlights: [
-      { label: "Regulatory Compliance", details: "Pembuatan dan eksekusi SK PKB diselaraskan dengan standar HQ (PKB - TPE)." },
-      { label: "Corporate Audit", details: "Menangani AUDIT KENU 2024, Audit Stamp - MASTER / Chop Audit, dan SOP HRS." },
-      { label: "Risk Management", details: "Mitigasi Human Rights Risk dan pembentukan SATGAS PPKS." },
-      { label: "Policy Enforcement", details: "Circular (Surat Edaran), regulasi Dress Code, pengelolaan legalitas BDO Land." }
+      { label: "Dispute Resolution", details: "Managed complex labor disputes including Bipartite, Tripartite (Disnaker), and PHI litigation with external counsel." },
+      { label: "Conflict Management", details: "Handled sensitive exit interviews, employee grievances, and negotiated resignation settlements." },
+      { label: "External Relations", details: "Maintained strong regulatory compliance and relationships with Disnaker, APINDO, and labor auditors." },
+      { label: "Disciplinary Actions", details: "Executed internal investigations and documented legal evidence for severe policy violations." }
     ]
   },
   {
-    category: "Organizational Development",
-    icon: PsychologyIcon,
-    title: "Organizational Development",
-    description: "Driving organizational growth through optimized employee lifecycle management, from talent onboarding to strategic offboarding transitions.",
+    category: "Legal Compliance & Contract Management",
+    icon: PolicyIcon, 
+    title: "Legal Compliance & Contract Management",
+    description: "Mitigating legal risks through rigorous contract drafting, policy enforcement, and proactive compliance with Indonesian labor laws.",
     highlights: [
-      { label: "Performance & Succession", details: "Performance Evaluation, Evaluation Seniority, Cultivate Plan, dan Retiring & Succession Plan." },
-      { label: "Training & Certification", details: "Training Karyawan, Sertifikasi, Training Report Probation, Kursus Bahasa." },
-      { label: "Mobility & Compensation", details: "MN TRANSFER, Rekom Internal, penentuan Salary Newcomer." },
-      { label: "Strategic Offboarding", details: "Pengumuman Pensiun dan eksekusi terminasi yang smooth." }
+      { label: "Legal Drafting", details: "Formulated NDAs, warning letters (SP), termination notices, probation, and driver partnership agreements." },
+      { label: "Corporate Policies", details: "Drafted and enforced the Company Handbook (PKB), internal SOPs, and corporate code of conduct." },
+      { label: "Contract Management", details: "Reviewed and coordinated legal drafting for vendor agreements and outsourcing contracts." },
+      { label: "Counsel Coordination", details: "Managed MoU renewals and collaborated closely with external retainer lawyers." }
     ]
   },
   {
-    category: "Employee Well-being",
-    icon: FavoriteIcon,
-    title: "Employee Well-being",
-    description: "Fostering a physically and psychologically safe work environment through well-being initiatives to sustain productivity and employee retention.",
+    category: "Talent Acquisition & Organizational Development",
+    icon: PsychologyIcon, 
+    title: "Acquisition & Organizational Development",
+    description: "Driving organizational growth through optimized talent acquisition, performance management, and strategic employee development.",
     highlights: [
-      { label: "Health & Safety", details: "MCU Health Checking dan Mental Health Checking." },
-      { label: "Corporate Culture", details: "Annual/Year End Party, Acara 17 Agustus, Social Club, CSR." },
-      { label: "Internal Comm", details: "Pengelolaan SUP Meeting dan SOL Author." }
+      { label: "End-to-End Recruitment", details: "Directed the full recruitment lifecycle from candidate sourcing and HR interviews to user coordination and offering." },
+      { label: "Performance Management", details: "Administered KPI frameworks, monitored employee performance, and provided constructive coaching." },
+      { label: "Training & Development", details: "Designed training programs, coordinated with vendors, and evaluated training effectiveness for career pathing." },
+      { label: "Onboarding", details: "Facilitated seamless integration of new hires through comprehensive induction programs." }
     ]
   },
   {
-    category: "Expatriate Management",
-    icon: FlightTakeoffIcon,
-    title: "Expatriate Management (Cross-Cultural HR Admin)",
-    description: "Facilitating seamless global mobility through integrated immigration compliance and cross-cultural adaptation support.",
+    category: "Employee Well-being & Engagement",
+    icon: FavoriteIcon, 
+    title: "Well-being & Corporate Culture",
+    description: "Fostering a highly productive and collaborative work culture through targeted engagement initiatives and strong labor union relations.",
     highlights: [
-      { label: "Expat Onboarding", details: "Penanganan New Expat Arrival." },
-      { label: "Expat Administration", details: "Pengelolaan dokumen dan kebutuhan terkait (PPT Expat)." }
+      { label: "Corporate Events & CSR", details: "Spearheaded annual gatherings, cultural events, and Corporate Social Responsibility (CSR) initiatives." },
+      { label: "Labor Union Relations", details: "Fostered a conducive and collaborative working environment with labor unions." },
+      { label: "Employee Satisfaction", details: "Conducted internal surveys to measure, analyze, and improve overall employee morale." },
+      { label: "Internal Communications", details: "Managed transparent communication channels to ensure organizational alignment and engagement." }
     ]
   }
 ];
