@@ -1,7 +1,7 @@
 import { Box, Typography, Container, Button } from '@mui/material';
 import { ArrowForward } from '@mui/icons-material';
 import { Link as RouterLink } from 'react-router-dom';
-import impactImage from '../assets/impact-case.png';
+import impactImage from '../assets/impact-case.jpg';
 
 const CaseStudiesPreview = () => {
   return (

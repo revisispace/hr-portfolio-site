@@ -1,6 +1,6 @@
 import { Box, Typography, Container, Grid, Card, CardContent, Divider, Chip } from '@mui/material';
 import { Timeline as TimelineIcon, TableChart, Policy } from '@mui/icons-material';
-import impactImage from '../assets/impact-case.png';
+import impactImage from '../assets/impact-case.jpg';
 
 const CaseStudyDeepDive = ({ category, title, situation, action, result, snippet, headerImage }) => (
   <Card sx={{ mb: 12, overflow: 'hidden', bgcolor: 'white', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
