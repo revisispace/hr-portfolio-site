@@ -1,17 +1,17 @@
+import React from 'react';
 import { Box, Typography, Container, Grid, Card, CardContent, Divider, Chip, Paper, Button } from '@mui/material';
-import { 
-  Public as PublicIcon, 
-  Gavel as GavelIcon, 
-  Psychology as PsychologyIcon, 
-  Favorite as FavoriteIcon, 
-  Policy as PolicyIcon,
-  ArrowForward as ArrowForwardIcon 
-} from '@mui/icons-material';
+import PublicIcon from '@mui/icons-material/Public';
+import GavelIcon from '@mui/icons-material/Gavel';
+import PolicyIcon from '@mui/icons-material/Policy';
+import PsychologyIcon from '@mui/icons-material/Psychology';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-const hrExpertiseData = [
+// Data Lengkap HR & Legal Core Expertise
+export const hrExpertiseData = [
   {
-    category: "Global HR Operations & Analytics",
-    icon: PublicIcon, 
+    category: "Global HR Operations",
+    icon: <PublicIcon />, 
     title: "Strategic Analytics & HQ Alignment",
     description: "Aligning local HR operations with global standards through precise data analytics, HRIS optimization, and comprehensive strategic reporting.",
     highlights: [
@@ -22,8 +22,8 @@ const hrExpertiseData = [
     ]
   },
   {
-    category: "Industrial Relations & Dispute Resolution",
-    icon: GavelIcon, 
+    category: "Industrial Relations",
+    icon: <GavelIcon />, 
     title: "Dispute Resolution & Labor Relations",
     description: "Safeguarding corporate stability by managing end-to-end labor disputes, from bipartite mediation to Industrial Relations Court (PHI).",
     highlights: [
@@ -34,8 +34,8 @@ const hrExpertiseData = [
     ]
   },
   {
-    category: "Legal Compliance & Contract Management",
-    icon: PolicyIcon, 
+    category: "Corporate Legal",
+    icon: <PolicyIcon />, 
     title: "Legal Compliance & Contract Management",
     description: "Mitigating legal risks through rigorous contract drafting, policy enforcement, and proactive compliance with Indonesian labor laws.",
     highlights: [
@@ -46,8 +46,8 @@ const hrExpertiseData = [
     ]
   },
   {
-    category: "Talent Acquisition & Organizational Development",
-    icon: PsychologyIcon, 
+    category: "Talent Management",
+    icon: <PsychologyIcon />, 
     title: "Acquisition & Organizational Development",
     description: "Driving organizational growth through optimized talent acquisition, performance management, and strategic employee development.",
     highlights: [
@@ -58,8 +58,8 @@ const hrExpertiseData = [
     ]
   },
   {
-    category: "Employee Well-being & Engagement",
-    icon: FavoriteIcon, 
+    category: "Employee Engagement",
+    icon: <FavoriteIcon />, 
     title: "Well-being & Corporate Culture",
     description: "Fostering a highly productive and collaborative work culture through targeted engagement initiatives and strong labor union relations.",
     highlights: [
@@ -84,7 +84,6 @@ const CaseStudyGrid = () => {
 
         <Grid container spacing={8}>
           {hrExpertiseData.map((study, index) => {
-            const IconComponent = study.icon;
             return (
               <Grid item xs={12} key={index}>
                 <Card 
@@ -108,7 +107,12 @@ const CaseStudyGrid = () => {
                       mb: 4 
                     }}>
                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                        <IconComponent color="primary" sx={{ fontSize: 32 }} />
+                        <Box sx={{ 
+                          color: 'primary.main', 
+                          '& .MuiSvgIcon-root': { fontSize: 32 } 
+                        }}>
+                          {study.icon}
+                        </Box>
                         <Typography variant="h5" sx={{ fontWeight: 800, color: 'text.primary', lineHeight: 1.2 }}>
                           {study.title}
                         </Typography>
