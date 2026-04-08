@@ -1,24 +1,38 @@
 import { Box, Typography, Container, Grid, Card, CardContent, Divider, Chip } from '@mui/material';
 import { Timeline as TimelineIcon, TableChart, Policy } from '@mui/icons-material';
+import impactImage from '../assets/impact-case.png';
 
-const CaseStudyDeepDive = ({ category, title, situation, action, result, snippet }) => (
-  <Card sx={{ mb: 12, p: { xs: 4, md: 8 }, bgcolor: 'white', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
-    <Box sx={{ mb: 4 }}>
-      <Chip 
-        label={category} 
+const CaseStudyDeepDive = ({ category, title, situation, action, result, snippet, headerImage }) => (
+  <Card sx={{ mb: 12, overflow: 'hidden', bgcolor: 'white', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
+    {headerImage && (
+      <Box 
+        component="img" 
+        src={headerImage} 
         sx={{ 
-          bgcolor: '#ECFDF5', 
-          color: '#065F46', 
-          fontWeight: 700, 
-          fontSize: '0.75rem', 
-          borderRadius: 1,
-          mb: 2 
+          width: '100%', 
+          height: { xs: 200, md: 400 }, 
+          objectFit: 'cover',
+          borderBottom: '1px solid #E2E8F0'
         }} 
       />
-      <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.75rem' }, fontWeight: 800, color: 'text.primary', mb: 4, lineHeight: 1.2 }}>
-        {title}
-      </Typography>
-    </Box>
+    )}
+    <CardContent sx={{ p: { xs: 4, md: 8 } }}>
+      <Box sx={{ mb: 4 }}>
+        <Chip 
+          label={category} 
+          sx={{ 
+            bgcolor: '#ECFDF5', 
+            color: '#065F46', 
+            fontWeight: 700, 
+            fontSize: '0.75rem', 
+            borderRadius: 1,
+            mb: 2 
+          }} 
+        />
+        <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.75rem' }, fontWeight: 800, color: 'text.primary', mb: 4, lineHeight: 1.2 }}>
+          {title}
+        </Typography>
+      </Box>
 
     <Grid container spacing={6} sx={{ mb: 6 }}>
       <Grid item xs={12} md={4}>
@@ -47,9 +61,7 @@ const CaseStudyDeepDive = ({ category, title, situation, action, result, snippet
       </Grid>
     </Grid>
 
-    <Box sx={{ bgcolor: '#F8FAFC', p: 4, borderRadius: 2 }}>
-      {snippet}
-    </Box>
+      </CardContent>
   </Card>
 );
 
@@ -65,6 +77,7 @@ const CaseStudies = () => {
         </Typography>
 
         <CaseStudyDeepDive
+          headerImage={impactImage}
           category="INDUSTRIAL RELATIONS"
           title="End-to-End Industrial Relations Dispute Resolution: From Bipartite to PHI"
           situation="Complex dispute arising from restructuring, requiring strict adherence to the nuances of Navigating UU Cipta Kerja amidst heightened union sensitivity."
