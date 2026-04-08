@@ -1,6 +1,7 @@
 import { Box, Typography, Container, Button } from '@mui/material';
 import { ArrowForward } from '@mui/icons-material';
 import { Link as RouterLink } from 'react-router-dom';
+import impactImage from '../assets/impact-case.png';
 
 const CaseStudiesPreview = () => {
   return (
@@ -39,9 +40,15 @@ const CaseStudiesPreview = () => {
             >
               <Box
                 component="img"
-                src="https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=800&auto=format&fit=crop"
+                src={impactImage}
                 alt="End-to-End Industrial Relations Dispute Resolution"
-                sx={{ width: '100%', height: 'auto', borderRadius: '12px', boxShadow: 10 }}
+                sx={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover',
+                  borderRadius: '12px', 
+                  boxShadow: 10 
+                }}
               />
             </Box>
           </Box>
