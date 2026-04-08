@@ -1,4 +1,37 @@
-import { Box, Typography, Container, Grid } from '@mui/material';
+import { Box, Typography, Container } from '@mui/material';
+
+const timelineData = [
+  {
+    year: "Feb 2023 — Present",
+    role: "Senior Human Resource Generalist",
+    company: "PT. Multi Bina Pura International (Evergreen Group)",
+    description: "Leading end-to-end strategic HR operations, overseeing industrial relations and compliance, and ensuring accurate HR reporting directly to Evergreen Expatriates in Taipei."
+  },
+  {
+    year: "Aug 2024 — Jan 2025",
+    role: "Legal Officer (Freelance)",
+    company: "PT. Beringin Pratama Sentosa",
+    description: "Drafted legal agreements, developed document control systems, and provided legal opinions to guide management in risk mitigation and dispute prevention."
+  },
+  {
+    year: "Aug 2022 — Nov 2022",
+    role: "Content Specialist Intern",
+    company: "Jurist Wanna Be",
+    description: "Managed social media content strategy, researched labor market data, and produced SEO-optimized copywriting for targeted audiences."
+  },
+  {
+    year: "Sept 2022 — Oct 2022",
+    role: "Vice President Partnerships",
+    company: "Career Network",
+    description: "Drafted MoUs, negotiated partnership agreements, and coordinated collaboration execution with external stakeholders."
+  },
+  {
+    year: "Aug 2021 — Jan 2022",
+    role: "Human Capital Intern Staff (HCBP)",
+    company: "PT Bank Syariah Indonesia Tbk.",
+    description: "Assisted in HR issue analysis, supported manpower planning through data research, and liaised with management for HR process improvements."
+  }
+];
 
 const TimelineItem = ({ year, role, company, description, isLeft }) => (
   <Box
@@ -6,7 +39,7 @@ const TimelineItem = ({ year, role, company, description, isLeft }) => (
       display: 'flex',
       flexDirection: isLeft ? 'row' : 'row-reverse',
       alignItems: 'flex-start',
-      mb: 6,
+      mb: 8,
       position: 'relative',
       width: '100%',
     }}
@@ -22,10 +55,10 @@ const TimelineItem = ({ year, role, company, description, isLeft }) => (
       <Typography variant="h3" sx={{ fontSize: '1.25rem', fontWeight: 800, color: 'text.primary', mb: 0.5 }}>
         {role}
       </Typography>
-      <Typography variant="body2" sx={{ fontWeight: 700, color: 'primary.main', mb: 1, textTransform: 'uppercase', letterSpacing: 0.5 }}>
+      <Typography variant="body2" sx={{ fontWeight: 700, color: '#D9B061', mb: 1, textTransform: 'uppercase', letterSpacing: 0.5 }}>
         {company}
       </Typography>
-      <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6, maxWidth: { md: isLeft ? 'none' : 400 }, ml: { md: isLeft ? 'auto' : 0 } }}>
+      <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6, maxWidth: { md: isLeft ? 'none' : 450 }, ml: { md: isLeft ? 'auto' : 0 } }}>
         {description}
       </Typography>
     </Box>
@@ -43,9 +76,9 @@ const TimelineItem = ({ year, role, company, description, isLeft }) => (
     >
       <Box
         sx={{
-          width: 12,
-          height: 12,
-          bgcolor: 'primary.main',
+          width: 14,
+          height: 14,
+          bgcolor: '#0F172A',
           borderRadius: '50%',
           border: '4px solid white',
           boxShadow: '0 0 0 1px #E2E8F0',
@@ -78,7 +111,7 @@ const TimelineItem = ({ year, role, company, description, isLeft }) => (
     
     {/* Mobile Year (Shown only on small screens) */}
     <Box sx={{ display: { xs: 'block', md: 'none' }, position: 'absolute', top: -24, left: 52 }}>
-       <Typography variant="caption" sx={{ fontWeight: 700, color: 'text.secondary' }}>{year}</Typography>
+       <Typography variant="caption" sx={{ fontWeight: 700, color: '#D9B061' }}>{year}</Typography>
     </Box>
   </Box>
 );
@@ -90,7 +123,7 @@ const Timeline = () => {
         <Typography variant="overline" align="center" sx={{ letterSpacing: 4, fontWeight: 800, color: 'text.secondary', display: 'block', mb: 1 }}>
           THE JOURNEY
         </Typography>
-        <Typography variant="h2" align="center" sx={{ fontSize: { xs: '2rem', md: '3rem' }, mb: { xs: 8, md: 15 }, fontWeight: 800 }}>
+        <Typography variant="h2" align="center" sx={{ fontSize: { xs: '2.5rem', md: '3.5rem' }, mb: { xs: 10, md: 15 }, fontWeight: 900, letterSpacing: -1.5 }}>
           Career Timeline
         </Typography>
 
@@ -109,28 +142,17 @@ const Timeline = () => {
             }}
           />
 
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 8, md: 4 } }}>
-            <TimelineItem
-              year="2020 — Present"
-              role="Senior HR Generalist"
-              company="Global Tech Logistics Firm"
-              description="Leading regional industrial relations and strategic support alignment across 5 countries."
-              isLeft={true}
-            />
-            <TimelineItem
-              year="2017 — 2020"
-              role="Senior HR Generalist"
-              company="Manufacturing Systems International"
-              description="Reduced compliance risk across labor negotiations and human-centric compliance standards."
-              isLeft={false}
-            />
-            <TimelineItem
-              year="2012 — 2017"
-              role="HR Specialist"
-              company="Pacific Retail Solutions"
-              description="Focused on performance management frameworks and early stage in-house discipline regulation."
-              isLeft={true}
-            />
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+            {timelineData.map((item, index) => (
+              <TimelineItem
+                key={index}
+                year={item.year}
+                role={item.role}
+                company={item.company}
+                description={item.description}
+                isLeft={index % 2 === 0}
+              />
+            ))}
           </Box>
         </Box>
       </Container>
