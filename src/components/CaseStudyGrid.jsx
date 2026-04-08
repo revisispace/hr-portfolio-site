@@ -96,7 +96,14 @@ const CaseStudyGrid = () => {
                   }}
                 >
                   <CardContent sx={{ p: { xs: 4, md: 6 } }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', mb: 4 }}>
+                    <Box sx={{ 
+                      display: 'flex', 
+                      flexDirection: { xs: 'column', sm: 'row' },
+                      alignItems: { xs: 'flex-start', sm: 'center' },
+                      justifyContent: 'space-between', 
+                      gap: 2,
+                      mb: 4 
+                    }}>
                       <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                         <IconComponent color="primary" sx={{ fontSize: 32 }} />
                         <Typography variant="h5" sx={{ fontWeight: 800, color: 'text.primary', lineHeight: 1.2 }}>
