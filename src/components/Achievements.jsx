@@ -53,37 +53,39 @@ const Achievements = () => {
               </Typography>
             </Box>
 
-            <Stack spacing={3}>
+            <Grid container spacing={2}>
               {achievementsData.map((item, index) => (
-                <Card 
-                  key={index}
-                  elevation={0}
-                  sx={{ 
-                    borderRadius: 3, 
-                    border: '1px solid #E2E8F0',
-                    transition: '0.2s',
-                    '&:hover': { bgcolor: '#F8FAFC', borderColor: '#D9B061' }
-                  }}
-                >
-                  <CardContent sx={{ display: 'flex', gap: 3, p: 3 }}>
-                    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 48, height: 48, bgcolor: 'rgba(217, 176, 97, 0.1)', borderRadius: 2, flexShrink: 0 }}>
-                      <EmojiEvents sx={{ color: '#D9B061' }} />
-                    </Box>
-                    <Box>
-                      <Typography variant="h6" sx={{ fontWeight: 800, lineHeight: 1.2, mb: 0.5 }}>
-                        {item.title}
-                      </Typography>
-                      <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 600, mb: 0.5 }}>
-                        {item.event}
-                      </Typography>
-                      <Typography variant="caption" sx={{ color: 'primary.main', fontWeight: 800 }}>
-                        {item.year}
-                      </Typography>
-                    </Box>
-                  </CardContent>
-                </Card>
+                <Grid item xs={6} key={index}>
+                  <Card 
+                    elevation={0}
+                    sx={{ 
+                      height: '100%',
+                      borderRadius: 2, 
+                      border: '1px solid #E2E8F0',
+                      transition: '0.2s',
+                      '&:hover': { bgcolor: '#F8FAFC', borderColor: '#D9B061' }
+                    }}
+                  >
+                    <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, p: { xs: 2, md: 3 }, height: '100%' }}>
+                      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 32, height: 32, bgcolor: 'rgba(217, 176, 97, 0.1)', borderRadius: 1.5, flexShrink: 0 }}>
+                        <EmojiEvents sx={{ color: '#D9B061', fontSize: 18 }} />
+                      </Box>
+                      <Box>
+                        <Typography variant="h6" sx={{ fontWeight: 800, lineHeight: 1.2, mb: 0.5, fontSize: { xs: '0.85rem', md: '1rem' } }}>
+                          {item.title}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 600, mb: 0.5, fontSize: { xs: '0.7rem', md: '0.8rem' } }}>
+                          {item.event}
+                        </Typography>
+                        <Typography variant="caption" sx={{ color: 'primary.main', fontWeight: 800, fontSize: '0.7rem' }}>
+                          {item.year}
+                        </Typography>
+                      </Box>
+                    </CardContent>
+                  </Card>
+                </Grid>
               ))}
-            </Stack>
+            </Grid>
           </Grid>
 
           {/* Certifications & Strengths Column */}

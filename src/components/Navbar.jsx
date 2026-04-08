@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, Container, Box, IconButton, Drawer, List, ListItem, ListItemText, ListItemButton } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -41,11 +41,18 @@ const Navbar = () => {
         {navItems.map((item) => (
           <ListItem key={item.label} disablePadding sx={{ mb: 2 }}>
             <ListItemButton 
-              component={RouterLink} 
+              component={NavLink} 
               to={item.path}
               sx={{ 
                 borderRadius: 2,
                 px: 2,
+                '&.active': {
+                  bgcolor: 'rgba(217, 176, 97, 0.1)',
+                  '& .MuiListItemText-primary': {
+                    color: '#D9B061',
+                    fontWeight: 900
+                  }
+                },
                 '&:hover': { bgcolor: 'rgba(217, 176, 97, 0.1)' }
               }}
             >
@@ -108,14 +115,29 @@ const Navbar = () => {
             {navItems.map((item) => (
               <Button
                 key={item.label}
-                component={RouterLink}
+                component={NavLink}
                 to={item.path}
                 sx={{
                   color: 'text.secondary',
                   fontSize: '0.875rem',
                   fontWeight: 600,
                   textTransform: 'none',
-                  '&:hover': { color: 'primary.main', bgcolor: 'transparent' },
+                  position: 'relative',
+                  '&.active': {
+                    color: '#D9B061',
+                    fontWeight: 800,
+                    '&::after': {
+                      content: '""',
+                      position: 'absolute',
+                      bottom: -28, // Connects visually to the toolbar border
+                      left: 0,
+                      width: '100%',
+                      height: '2px',
+                      bgcolor: '#D9B061',
+                      borderRadius: '2px'
+                    }
+                  },
+                  '&:hover': { color: '#D9B061', bgcolor: 'transparent' },
                 }}
               >
                 {item.label}

@@ -4,10 +4,89 @@ import { LinkedIn, ContentCopy, Place, Lock } from '@mui/icons-material';
 
 const ContactSection = () => {
   const [copySuccess, setCopySuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ open: false, message: '', severity: 'success' });
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText('annisamsah99@gmail.com');
     setCopySuccess(true);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // 1. Validate Access Key Loading
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      console.error("WEB3FORMS ERROR: Access Key is missing. Did you restart the server after creating .env?");
+      setSubmitStatus({ 
+        open: true, 
+        message: 'Konfigurasi tidak lengkap (Access Key hilang). Silakan hubungi pengelola.', 
+        severity: 'error' 
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    console.log("LOG: Starting form submission to Web3Forms...");
+
+    // 2. Prepare Data (with botcheck/honeypot)
+    const data = {
+      ...formData,
+      access_key: accessKey,
+      subject: `New Inquiry from ${formData.name} - Portfolio`,
+      from_name: "Portfolio Inquiry",
+      botcheck: "" // Hidden Honeypot
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+      console.log("LOG: Web3Forms Response:", result);
+
+      if (result.success) {
+        setSubmitStatus({ 
+          open: true, 
+          message: 'Pesan berhasil dikirim! Saya akan segera menghubungi Anda.', 
+          severity: 'success' 
+        });
+        setFormData({ name: '', company: '', email: '', message: '' });
+      } else {
+        setSubmitStatus({ 
+          open: true, 
+          message: result.message || 'Gagal mengirim pesan. Silakan coba lagi nanti.', 
+          severity: 'error' 
+        });
+      }
+    } catch (error) {
+      console.error("WEB3FORMS CONNECTION ERROR:", error);
+      setSubmitStatus({ 
+        open: true, 
+        message: 'Terjadi kesalahan koneksi. Periksa jaringan Anda atau coba lagi.', 
+        severity: 'error' 
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -132,14 +211,25 @@ const ContactSection = () => {
           </Box>
 
           {/* Right Column (Form) */}
-          <Box sx={{ flex: 1, p: { xs: 4, md: 8 }, bgcolor: 'white', borderRadius: '16px', border: '1px solid #F1F5F9', boxShadow: '0 4px 30px rgba(0,0,0,0.02)' }}>
+          <Box 
+            component="form" 
+            onSubmit={handleSubmit}
+            sx={{ flex: 1, p: { xs: 4, md: 8 }, bgcolor: 'white', borderRadius: '16px', border: '1px solid #F1F5F9', boxShadow: '0 4px 30px rgba(0,0,0,0.02)' }}
+          >
                <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+                  {/* Honeypot Spam Protection */}
+                  <input type="checkbox" name="botcheck" style={{ display: "none" }} tabIndex="-1" autoComplete="off" />
+
                   <Box sx={{ width: { xs: '100%', sm: 'calc(50% - 16px)' } }}>
                     <Typography variant="overline" sx={{ fontWeight: 900, letterSpacing: 1.5, color: '#334155', display: 'block', mb: 1.5 }}>
                       NAME
                     </Typography>
                     <TextField 
                       fullWidth 
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
                       placeholder="John Doe" 
                       variant="filled" 
                       InputProps={{ 
@@ -154,6 +244,9 @@ const ContactSection = () => {
                     </Typography>
                     <TextField 
                       fullWidth 
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
                       placeholder="Organization Name" 
                       variant="filled" 
                       InputProps={{ 
@@ -168,6 +261,11 @@ const ContactSection = () => {
                     </Typography>
                     <TextField 
                       fullWidth 
+                      name="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="email@company.com" 
                       variant="filled" 
                       InputProps={{ 
@@ -182,8 +280,12 @@ const ContactSection = () => {
                     </Typography>
                     <TextField 
                       fullWidth 
+                      name="message"
+                      required
                       multiline 
                       rows={6} 
+                      value={formData.message}
+                      onChange={handleChange}
                       placeholder="How can I assist your organization?" 
                       variant="filled" 
                       InputProps={{ 
@@ -196,6 +298,8 @@ const ContactSection = () => {
                     <Button 
                       variant="contained" 
                       fullWidth 
+                      type="submit"
+                      disabled={isSubmitting}
                       sx={{ 
                         bgcolor: 'black', 
                         color: 'white', 
@@ -207,7 +311,7 @@ const ContactSection = () => {
                         '&:hover': { bgcolor: '#1E293B' }
                       }}
                     >
-                      Send Message
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
                     <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, mt: 3, opacity: 0.6 }}>
                        <Lock sx={{ fontSize: 14 }} />
@@ -237,6 +341,17 @@ const ContactSection = () => {
             </Box>
           ))}
         </Box>
+
+        <Snackbar 
+          open={submitStatus.open} 
+          autoHideDuration={6000} 
+          onClose={() => setSubmitStatus({ ...submitStatus, open: false })}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        >
+          <Alert severity={submitStatus.severity} sx={{ width: '100%' }}>
+            {submitStatus.message}
+          </Alert>
+        </Snackbar>
       </Container>
     </Box>
   );
