@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Box, Typography, Container, Grid, TextField, Button, IconButton, Snackbar, Alert } from '@mui/material';
 import { LinkedIn, ContentCopy, Place, Lock } from '@mui/icons-material';
+import workspaceImage from '../assets/workspace.jpg';
 
 const ContactSection = () => {
   const [copySuccess, setCopySuccess] = useState(false);
@@ -126,13 +127,12 @@ const ContactSection = () => {
           <Box sx={{ flex: { xs: '1 1 100%', md: '0 0 40%' } }}>
             <Box
               component="img"
-              src="https://images.unsplash.com/photo-1544980766-42ed401cb18b?q=80&w=800&auto=format&fit=crop"
+              src={workspaceImage}
               alt="Professional Workspace"
               sx={{
                 width: '100%',
                 height: 380,
                 objectFit: 'cover',
-                borderRadius: '8px',
                 mb: 6
               }}
             />
