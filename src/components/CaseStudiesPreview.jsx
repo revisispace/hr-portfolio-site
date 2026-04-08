@@ -25,32 +25,18 @@ const CaseStudiesPreview = () => {
           {/* Image Area */}
           <Box sx={{ flex: 1, width: '100%' }}>
             <Box
-              sx={{
-                width: '100%',
-                aspectRatio: '16/10',
-                bgcolor: '#0F172A',
-                borderRadius: '16px',
-                overflow: 'hidden',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                p: { xs: 1.5, md: 2 },
-                boxShadow: '0 40px 100px -20px rgba(15, 23, 42, 0.25)',
+              component="img"
+              src={impactImage}
+              alt="End-to-End Industrial Relations Dispute Resolution"
+              sx={{ 
+                width: '100%', 
+                height: 'auto', 
+                objectFit: 'cover',
+                borderRadius: '16px', 
+                boxShadow: '0 20px 80px rgba(0,0,0,0.15)',
+                display: 'block'
               }}
-            >
-              <Box
-                component="img"
-                src={impactImage}
-                alt="End-to-End Industrial Relations Dispute Resolution"
-                sx={{ 
-                  width: '100%', 
-                  height: '100%', 
-                  objectFit: 'cover',
-                  borderRadius: '10px', 
-                  boxShadow: 10 
-                }}
-              />
-            </Box>
+            />
           </Box>
 
           {/* Text Area */}
