@@ -18,7 +18,8 @@ export const hrExpertiseData = [
       { label: "Global & Internal Reporting", details: "Managed comprehensive HR metrics (turnover, headcount) for internal stakeholders and Evergreen HQ Taipei." },
       { label: "HRIS Optimization", details: "Streamlined HR data and payroll administration using Andal Paymaster (APM)." },
       { label: "Policy Development", details: "Drove continuous policy improvements and disseminated corporate regulations via official Circulars." },
-      { label: "HR Administration", details: "Oversaw end-to-end personnel data management, employee transitions, and workforce planning." }
+      { label: "HR Administration", details: "Oversaw end-to-end personnel data management, employee transitions, and workforce planning." },
+      { label: "Expatriate Management", details: "Expat Onboarding: Penanganan New Expat Arrival, Expat Administration: Pengelolaan dokumen dan kebutuhan terkait (PPT Expat)." }
     ]
   },
   {
