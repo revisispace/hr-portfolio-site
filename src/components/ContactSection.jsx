@@ -1,7 +1,15 @@
-import { Box, Typography, Container, Grid, TextField, Button, IconButton } from '@mui/material';
+import { useState } from 'react';
+import { Box, Typography, Container, Grid, TextField, Button, IconButton, Snackbar, Alert } from '@mui/material';
 import { LinkedIn, ContentCopy, Place, Lock } from '@mui/icons-material';
 
 const ContactSection = () => {
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('annisamsah99@gmail.com');
+    setCopySuccess(true);
+  };
+
   return (
     <Box sx={{ bgcolor: 'white', py: { xs: 8, md: 12 } }}>
       <Container maxWidth="lg">
@@ -69,8 +77,18 @@ const ContactSection = () => {
                    <Box component="span" sx={{ fontSize: 20 }}>📩</Box>
                    <Typography variant="body1" sx={{ fontWeight: 600 }}>annisamsah99@gmail.com</Typography>
                 </Box>
-                <IconButton size="small"><ContentCopy sx={{ fontSize: 18 }} /></IconButton>
+                <IconButton size="small" onClick={handleCopyEmail}>
+                  <ContentCopy sx={{ fontSize: 18 }} />
+                </IconButton>
               </Box>
+              <Snackbar 
+                open={copySuccess} 
+                autoHideDuration={3000} 
+                onClose={() => setCopySuccess(false)}
+                anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+              >
+                <Alert severity="success" sx={{ width: '100%' }}>Email copied to clipboard!</Alert>
+              </Snackbar>
             </Box>
 
             <Box sx={{ mb: 6 }}>
@@ -81,6 +99,9 @@ const ContactSection = () => {
                 variant="contained" 
                 fullWidth 
                 startIcon={<LinkedIn />}
+                component="a"
+                href="https://linkedin.com/in/anisah-balqis"
+                target="_blank"
                 sx={{ 
                   bgcolor: '#0077B5', 
                   py: 2,

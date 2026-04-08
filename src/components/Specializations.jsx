@@ -24,7 +24,7 @@ const Specializations = () => {
               variant="contained" 
               color="primary" 
               component="a"
-              href="https://drive.google.com/drive/u/0/folders/1teC0B-SDt7wYe5bucxpam0ZRvB6aiF2B"
+              href="https://drive.google.com/file/d/15BArPkxb9lnqYczvY4WmHJ_OCoDheZ77/view?usp=drive_link"
               target="_blank"
               sx={{ 
                 display: 'flex', 
