@@ -37,9 +37,9 @@ const TimelineItem = ({ year, role, company, description, isLeft }) => (
   <Box
     sx={{
       display: 'flex',
-      flexDirection: isLeft ? 'row' : 'row-reverse',
+      flexDirection: { xs: 'row', md: isLeft ? 'row' : 'row-reverse' },
       alignItems: 'flex-start',
-      mb: 8,
+      mb: { xs: 6, md: 8 },
       position: 'relative',
       width: '100%',
     }}
@@ -47,18 +47,19 @@ const TimelineItem = ({ year, role, company, description, isLeft }) => (
     {/* Content Side */}
     <Box
       sx={{
-        width: { xs: 'calc(100% - 40px)', md: '45%' },
+        width: { xs: 'calc(100% - 48px)', md: '45%' },
         textAlign: { xs: 'left', md: isLeft ? 'right' : 'left' },
-        px: 3,
+        px: { xs: 2, md: 3 },
+        order: { xs: 2, md: 'unset' }
       }}
     >
-      <Typography variant="h3" sx={{ fontSize: '1.25rem', fontWeight: 800, color: 'text.primary', mb: 0.5 }}>
+      <Typography variant="h3" sx={{ fontSize: { xs: '1.1rem', md: '1.25rem' }, fontWeight: 800, color: 'text.primary', mb: 0.5 }}>
         {role}
       </Typography>
-      <Typography variant="body2" sx={{ fontWeight: 700, color: '#D9B061', mb: 1, textTransform: 'uppercase', letterSpacing: 0.5 }}>
+      <Typography variant="body2" sx={{ fontWeight: 700, color: '#D9B061', mb: 1, textTransform: 'uppercase', letterSpacing: 0.5, fontSize: { xs: '0.75rem', md: '0.875rem' } }}>
         {company}
       </Typography>
-      <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6, maxWidth: { md: isLeft ? 'none' : 450 }, ml: { md: isLeft ? 'auto' : 0 } }}>
+      <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.6, fontSize: { xs: '0.875rem', md: '1rem' }, maxWidth: { md: isLeft ? 'none' : 450 }, ml: { md: isLeft ? 'auto' : 0 } }}>
         {description}
       </Typography>
     </Box>
@@ -66,28 +67,29 @@ const TimelineItem = ({ year, role, company, description, isLeft }) => (
     {/* Center Spine & Dot */}
     <Box
       sx={{
-        width: { xs: 40, md: '10%' },
+        width: { xs: 48, md: '10%' },
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         position: 'relative',
         mt: 1,
+        order: { xs: 1, md: 'unset' }
       }}
     >
       <Box
         sx={{
-          width: 14,
-          height: 14,
+          width: { xs: 12, md: 14 },
+          height: { xs: 12, md: 14 },
           bgcolor: '#0F172A',
           borderRadius: '50%',
-          border: '4px solid white',
+          border: '3px solid white',
           boxShadow: '0 0 0 1px #E2E8F0',
           zIndex: 2,
         }}
       />
     </Box>
 
-    {/* Year Side */}
+    {/* Year Side (Desktop Only) */}
     <Box
       sx={{
         width: { xs: 0, md: '45%' },
@@ -110,8 +112,10 @@ const TimelineItem = ({ year, role, company, description, isLeft }) => (
     </Box>
     
     {/* Mobile Year (Shown only on small screens) */}
-    <Box sx={{ display: { xs: 'block', md: 'none' }, position: 'absolute', top: -24, left: 52 }}>
-       <Typography variant="caption" sx={{ fontWeight: 700, color: '#D9B061' }}>{year}</Typography>
+    <Box sx={{ display: { xs: 'block', md: 'none' }, mb: 1, ml: 6 }}>
+       <Typography variant="caption" sx={{ fontWeight: 800, color: '#64748B', fontFamily: '"Merriweather", serif' }}>
+         {year}
+       </Typography>
     </Box>
   </Box>
 );
@@ -123,7 +127,7 @@ const Timeline = () => {
         <Typography variant="overline" align="center" sx={{ letterSpacing: 4, fontWeight: 800, color: 'text.secondary', display: 'block', mb: 1 }}>
           THE JOURNEY
         </Typography>
-        <Typography variant="h2" align="center" sx={{ fontSize: { xs: '2.5rem', md: '3.5rem' }, mb: { xs: 10, md: 15 }, fontWeight: 900, letterSpacing: -1.5 }}>
+        <Typography variant="h2" align="center" sx={{ fontSize: { xs: '2.5rem', md: '3.5rem' }, mb: { xs: 8, md: 15 }, fontWeight: 900, letterSpacing: -1.5 }}>
           Career Timeline
         </Typography>
 
@@ -132,10 +136,10 @@ const Timeline = () => {
           <Box
             sx={{
               position: 'absolute',
-              left: { xs: 20, md: '50%' },
+              left: { xs: 24, md: '50%' }, // Centered under the 48px spine on mobile
               top: 0,
               bottom: 0,
-              width: '2px',
+              width: '1px',
               bgcolor: 'divider',
               transform: { xs: 'none', md: 'translateX(-50%)' },
               zIndex: 1,
