@@ -129,9 +129,9 @@ const Navbar = () => {
                     '&::after': {
                       content: '""',
                       position: 'absolute',
-                      bottom: -28, // Connects visually to the toolbar border
-                      left: 0,
-                      width: '100%',
+                      bottom: -8, 
+                      left: '15%',
+                      width: '70%',
                       height: '2px',
                       bgcolor: '#D9B061',
                       borderRadius: '2px'
