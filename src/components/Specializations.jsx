@@ -23,6 +23,9 @@ const Specializations = () => {
             <Button 
               variant="contained" 
               color="primary" 
+              component="a"
+              href="https://drive.google.com/drive/u/0/folders/1teC0B-SDt7wYe5bucxpam0ZRvB6aiF2B"
+              target="_blank"
               sx={{ 
                 display: 'flex', 
                 alignItems: 'center', 
@@ -75,7 +78,7 @@ const Specializations = () => {
                 
                 <Box sx={{ display: 'flex', gap: 8 }}>
                   <Box>
-                    <Typography variant="h2" sx={{ fontSize: '3rem', fontWeight: 900, color: '#D9B061', mb: 0.5, lineHeight: 1 }}>12+</Typography>
+                    <Typography variant="h2" sx={{ fontSize: '3rem', fontWeight: 900, color: '#D9B061', mb: 0.5, lineHeight: 1 }}>5+</Typography>
                     <Typography variant="overline" sx={{ fontWeight: 800, color: 'text.secondary', fontSize: '0.65rem' }}>YEARS EXP.</Typography>
                   </Box>
                   <Box>

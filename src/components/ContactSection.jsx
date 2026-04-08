@@ -67,7 +67,7 @@ const ContactSection = () => {
               >
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                    <Box component="span" sx={{ fontSize: 20 }}>📩</Box>
-                   <Typography variant="body1" sx={{ fontWeight: 600 }}>contact@example.com</Typography>
+                   <Typography variant="body1" sx={{ fontWeight: 600 }}>annisamsah99@gmail.com</Typography>
                 </Box>
                 <IconButton size="small"><ContentCopy sx={{ fontSize: 18 }} /></IconButton>
               </Box>
@@ -202,9 +202,9 @@ const ContactSection = () => {
         {/* Stats Row */}
         <Box sx={{ mt: 15, display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: 6 }}>
           {[
-            { label: 'YEARS EXPERIENCE', val: '15+' },
+            { label: 'YEARS EXPERIENCE', val: '5+' },
             { label: 'RESOLUTION RATE', val: '98%' },
-            { label: 'MEDIATIONS HANDLED', val: '200+' }
+            { label: 'MEDIATIONS HANDLED', val: '20+' }
           ].map((stat, idx) => (
             <Box key={idx} sx={{ textAlign: 'center' }}>
               <Typography variant="h3" sx={{ fontSize: { xs: '3.5rem', md: '5rem' }, fontWeight: 900, mb: 1, letterSpacing: -2 }}>

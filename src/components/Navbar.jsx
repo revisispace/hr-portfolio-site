@@ -65,6 +65,9 @@ const Navbar = () => {
       <Button 
         variant="contained" 
         fullWidth
+        component="a"
+        href="https://drive.google.com/drive/u/0/folders/1teC0B-SDt7wYe5bucxpam0ZRvB6aiF2B"
+        target="_blank"
         sx={{ 
           borderRadius: 1, 
           fontWeight: 800, 
@@ -121,6 +124,9 @@ const Navbar = () => {
             <Button 
               variant="contained" 
               color="primary" 
+              component="a"
+              href="https://drive.google.com/drive/u/0/folders/1teC0B-SDt7wYe5bucxpam0ZRvB6aiF2B"
+              target="_blank"
               sx={{ 
                 ml: 2, 
                 borderRadius: 1, 

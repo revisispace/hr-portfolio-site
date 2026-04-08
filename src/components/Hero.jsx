@@ -46,10 +46,23 @@ const Hero = () => {
               Integrating legal compliance, global operational efficiency, and a safe workplace culture through structural rigor and human-centric leadership.
             </Typography>
             <Box sx={{ display: 'flex', gap: 3, mb: { xs: 6, md: 0 } }}>
-              <Button variant="contained" color="primary" sx={{ px: 4, py: 2, fontWeight: 800, borderRadius: 1.5 }}>
+              <Button 
+                variant="contained" 
+                color="primary" 
+                component="a"
+                href="https://drive.google.com/drive/u/0/folders/1teC0B-SDt7wYe5bucxpam0ZRvB6aiF2B"
+                target="_blank"
+                sx={{ px: 4, py: 2, fontWeight: 800, borderRadius: 1.5 }}
+              >
                 DOWNLOAD RESUME
               </Button>
-              <Button variant="outlined" color="primary" sx={{ px: 4, py: 2, fontWeight: 800, borderRadius: 1.5 }}>
+              <Button 
+                variant="outlined" 
+                color="primary" 
+                component="a"
+                href="mailto:annisamsah99@gmail.com"
+                sx={{ px: 4, py: 2, fontWeight: 800, borderRadius: 1.5 }}
+              >
                 CONTACT ME
               </Button>
             </Box>

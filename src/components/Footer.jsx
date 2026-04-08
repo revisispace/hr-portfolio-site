@@ -1,4 +1,5 @@
 import { Box, Typography, Container, Link } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -10,10 +11,10 @@ const Footer = () => {
             <Typography variant="caption" color="text.secondary">© 2025 Anisah Balqis. Dedicated to building better workplaces.</Typography>
           </Box>
           <Box sx={{ display: 'flex', gap: 4 }}>
-            <Link href="#" color="inherit" sx={{ fontSize: '0.875rem', fontWeight: 500 }}>Privacy Policy</Link>
-            <Link href="#" color="inherit" sx={{ fontSize: '0.875rem', fontWeight: 500 }}>Terms of Service</Link>
-            <Link href="#" color="inherit" sx={{ fontSize: '0.875rem', fontWeight: 500 }}>LinkedIn</Link>
-            <Link href="#" color="inherit" sx={{ fontSize: '0.875rem', fontWeight: 500 }}>Contact</Link>
+            <Link component={RouterLink} to="/case-studies" color="inherit" sx={{ fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none', '&:hover': { color: 'primary.main' } }}>Case Studies</Link>
+            <Link component={RouterLink} to="/about" color="inherit" sx={{ fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none', '&:hover': { color: 'primary.main' } }}>About</Link>
+            <Link component={RouterLink} to="/contact" color="inherit" sx={{ fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none', '&:hover': { color: 'primary.main' } }}>Contact</Link>
+            <Link href="https://linkedin.com/in/anisah-balqis" target="_blank" color="inherit" sx={{ fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none', '&:hover': { color: 'primary.main' } }}>LinkedIn</Link>
           </Box>
         </Box>
       </Container>
