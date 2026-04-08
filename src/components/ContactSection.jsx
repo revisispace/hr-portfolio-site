@@ -133,6 +133,7 @@ const ContactSection = () => {
                 width: '100%',
                 height: 380,
                 objectFit: 'cover',
+                borderRadius: '16px',
                 mb: 6
               }}
             />
