@@ -101,7 +101,7 @@ const Navbar = () => {
             sx={{
               display: 'flex',
               alignItems: 'center',
-              gap: 2,
+              gap: 1.25,
               textDecoration: 'none',
               cursor: 'pointer',
             }}
@@ -111,7 +111,7 @@ const Navbar = () => {
               src={logo} 
               alt="Anisah Balqis Logo"
               sx={{ 
-                height: { xs: 32, md: 40 }, 
+                height: { xs: 36, md: 44 }, 
                 width: 'auto',
                 transition: '0.3s'
               }} 
