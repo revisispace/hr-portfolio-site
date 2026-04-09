@@ -101,6 +101,7 @@ const Navbar = () => {
             sx={{
               display: 'flex',
               alignItems: 'center',
+              gap: 2,
               textDecoration: 'none',
               cursor: 'pointer',
             }}
@@ -110,11 +111,23 @@ const Navbar = () => {
               src={logo} 
               alt="Anisah Balqis Logo"
               sx={{ 
-                height: { xs: 40, md: 50 }, 
+                height: { xs: 32, md: 40 }, 
                 width: 'auto',
                 transition: '0.3s'
               }} 
             />
+            <Typography
+              variant="h2"
+              sx={{
+                fontSize: { xs: '1rem', md: '1.25rem' },
+                fontWeight: 800,
+                fontFamily: '"Merriweather", serif',
+                color: 'text.primary',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              Anisah Balqis
+            </Typography>
           </Box>
 
           {/* Desktop Navigation */}
