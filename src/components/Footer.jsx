@@ -1,5 +1,6 @@
 import { Box, Typography, Container, Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   return (
@@ -7,8 +8,15 @@ const Footer = () => {
       <Container maxWidth="lg">
         <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: 'center', gap: 3 }}>
           <Box>
-            <Typography variant="h2" sx={{ fontSize: '1.25rem', fontWeight: 800, mb: 1 }}>Anisah Balqis</Typography>
-            <Typography variant="caption" color="text.secondary">© 2025 Anisah Balqis. Dedicated to building better workplaces.</Typography>
+            <Box 
+              component="img" 
+              src={logo} 
+              alt="Anisah Balqis Logo"
+              sx={{ height: 32, width: 'auto', mb: 1.5, display: 'block' }} 
+            />
+            <Typography variant="caption" color="text.secondary" sx={{ display: 'block', fontWeight: 500 }}>
+              © 2025 Anisah Balqis. Dedicated to building better workplaces.
+            </Typography>
           </Box>
           <Box sx={{ display: 'flex', gap: 4 }}>
             <Link component={RouterLink} to="/case-studies" color="inherit" sx={{ fontSize: '0.875rem', fontWeight: 500, textDecoration: 'none', '&:hover': { color: 'primary.main' } }}>Case Studies</Link>

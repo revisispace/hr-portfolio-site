@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, Container, Box, IconButton, Drawer, List, ListItem, ListItemText, ListItemButton } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 import { Link as RouterLink, NavLink } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -94,21 +95,27 @@ const Navbar = () => {
     <AppBar position="sticky" color="default" sx={{ bgcolor: 'white', borderBottom: 1, borderColor: 'divider', boxShadow: 'none' }}>
       <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ height: 80, display: 'flex', justifyContent: 'space-between' }}>
-          <Typography
-            variant="h2"
+          <Box
             component={RouterLink}
             to="/"
             sx={{
-              fontSize: '1.25rem',
-              fontWeight: 800,
-              fontFamily: '"Merriweather", serif',
-              color: 'text.primary',
+              display: 'flex',
+              alignItems: 'center',
               textDecoration: 'none',
               cursor: 'pointer',
             }}
           >
-            Anisah Balqis
-          </Typography>
+            <Box 
+              component="img" 
+              src={logo} 
+              alt="Anisah Balqis Logo"
+              sx={{ 
+                height: { xs: 40, md: 50 }, 
+                width: 'auto',
+                transition: '0.3s'
+              }} 
+            />
+          </Box>
 
           {/* Desktop Navigation */}
           <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 4, alignItems: 'center' }}>
