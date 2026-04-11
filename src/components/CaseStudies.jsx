@@ -2,7 +2,68 @@ import { Box, Typography, Container, Grid, Card, CardContent, Divider, Chip } fr
 import { Timeline as TimelineIcon, TableChart, Policy } from '@mui/icons-material';
 import impactImage from '../assets/impact-case.jpg';
 
-const CaseStudyDeepDive = ({ category, title, situation, action, result, snippet, headerImage }) => (
+const caseStudiesData = [
+  {
+    "id": 1,
+    "tag": "INDUSTRIAL RELATIONS",
+    "title": "End-to-End Industrial Relations Dispute Resolution: From Bipartite to PHI",
+    "headerImage": impactImage,
+    "details": [
+      {
+        "subheading": "SITUATION",
+        "text": "Complex dispute arising from restructuring, requiring strict adherence to the nuances of Navigating UU Cipta Kerja amidst heightened union sensitivity."
+      },
+      {
+        "subheading": "ACTION",
+        "text": "Led multiple rounds of Bipartite negotiations, managed evidence preparation for mediation, and represented organizational interests through the PHI process."
+      },
+      {
+        "subheading": "RESULT",
+        "text": "Successfully achieved Zero legal liability. Settlement reached with 100% compliance with local labor regulations and company SOPs."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "tag": "GLOBAL OPERATIONS",
+    "title": "Cross-Border HR Reporting & HQ Alignment",
+    "details": [
+      {
+        "subheading": "SITUATION",
+        "text": "Direct Reporting to Evergreen HQ in Taipei, managing data silos across regional offices with disparate tracking mechanisms."
+      },
+      {
+        "subheading": "ACTION",
+        "text": "Developed Headcount budget analytics dashboards and unified local procedures with global SOP alignment directives."
+      },
+      {
+        "subheading": "RESULT",
+        "text": "Reduced reporting latency by 40% and improved budget forecast accuracy within a 2% variance for consecutive quarters."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "tag": "RISK MITIGATION",
+    "title": "Establishing a Safe Workspace: Sexual Harassment Task Force",
+    "details": [
+      {
+        "subheading": "SITUATION",
+        "text": "Identifying the need for proactive cultural safeguards and compliance with emerging preventive regulation frameworks (PPKS)."
+      },
+      {
+        "subheading": "ACTION",
+        "text": "Architected a robust Whistleblowing SOP and chaired the multi-departmental Task Force to ensure unbiased reporting channels."
+      },
+      {
+        "subheading": "RESULT",
+        "text": "Cultivated measurable psychological safety via annual sentiment audits, with 100% of staff trained in preventive measures."
+      }
+    ]
+  }
+];
+
+const CaseStudyDeepDive = ({ tag, title, details, headerImage, snippet }) => (
   <Card sx={{ mb: 12, overflow: 'hidden', bgcolor: 'white', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.05)' }}>
     {headerImage && (
       <Box 
@@ -19,7 +80,7 @@ const CaseStudyDeepDive = ({ category, title, situation, action, result, snippet
     <CardContent sx={{ p: { xs: 4, md: 8 } }}>
       <Box sx={{ mb: 4 }}>
         <Chip 
-          label={category} 
+          label={tag} 
           sx={{ 
             bgcolor: '#ECFDF5', 
             color: '#065F46', 
@@ -34,32 +95,24 @@ const CaseStudyDeepDive = ({ category, title, situation, action, result, snippet
         </Typography>
       </Box>
 
-    <Grid container spacing={6} sx={{ mb: 6 }}>
-      <Grid item xs={12} md={4}>
-        <Typography variant="overline" display="block" sx={{ fontWeight: 800, color: 'primary.main', mb: 2 }}>
-          SITUATION
-        </Typography>
-        <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 500, lineHeight: 1.7 }}>
-          {situation}
-        </Typography>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Typography variant="overline" display="block" sx={{ fontWeight: 800, color: 'primary.main', mb: 2 }}>
-          ACTION
-        </Typography>
-        <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 500, lineHeight: 1.7 }}>
-          {action}
-        </Typography>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <Typography variant="overline" display="block" sx={{ fontWeight: 800, color: 'primary.main', mb: 2 }}>
-          RESULT
-        </Typography>
-        <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 500, lineHeight: 1.7 }}>
-          {result}
-        </Typography>
-      </Grid>
+    <Grid container spacing={6} sx={{ mb: snippet ? 6 : 0 }}>
+      {details.map((detail, index) => (
+        <Grid item xs={12} md={4} key={index}>
+          <Typography variant="overline" display="block" sx={{ fontWeight: 800, color: 'primary.main', mb: 2 }}>
+            {detail.subheading}
+          </Typography>
+          <Typography variant="body1" sx={{ color: 'text.secondary', fontWeight: 500, lineHeight: 1.7 }}>
+            {detail.text}
+          </Typography>
+        </Grid>
+      ))}
     </Grid>
+
+    {snippet && (
+      <Box sx={{ mt: 4 }}>
+        {snippet}
+      </Box>
+    )}
 
       </CardContent>
   </Card>
@@ -76,82 +129,67 @@ const CaseStudies = () => {
           Deep dives into complex HR challenges, legal compliance, and strategic resolutions.
         </Typography>
 
-        <CaseStudyDeepDive
-          headerImage={impactImage}
-          category="INDUSTRIAL RELATIONS"
-          title="End-to-End Industrial Relations Dispute Resolution: From Bipartite to PHI"
-          situation="Complex dispute arising from restructuring, requiring strict adherence to the nuances of Navigating UU Cipta Kerja amidst heightened union sensitivity."
-          action="Led multiple rounds of Bipartite negotiations, managed evidence preparation for mediation, and represented organizational interests through the PHI process."
-          result="Successfully achieved Zero legal liability. Settlement reached with 100% compliance with local labor regulations and company SOPs."
-          snippet={
-            <Box>
-              <Typography variant="overline" sx={{ fontWeight: 800, color: 'text.secondary', display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                <TimelineIcon fontSize="small" /> DISPUTE LIFECYCLE TIMELINE
-              </Typography>
-              <Grid container spacing={2} justifyContent="space-around">
-                {[
-                  { step: '1', name: 'Bipartite', label: 'Internal Negotiation' },
-                  { step: '2', name: 'Mediation', label: 'Manpower Office' },
-                  { step: '3', name: 'PHI', label: 'Court Resolution' },
-                ].map((item) => (
-                  <Grid item key={item.step} sx={{ textAlign: 'center' }}>
-                    <Box sx={{ width: 32, height: 32, bgcolor: 'black', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 1, fontWeight: 700 }}>
-                      {item.step}
-                    </Box>
-                    <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>{item.name}</Typography>
-                    <Typography variant="caption" color="text.secondary">{item.label}</Typography>
-                  </Grid>
-                ))}
-              </Grid>
-            </Box>
-          }
-        />
-
-        <CaseStudyDeepDive
-          category="GLOBAL OPERATIONS"
-          title="Cross-Border HR Reporting & HQ Alignment"
-          situation="Direct Reporting to Evergreen HQ in Taipei, managing data silos across regional offices with disparate tracking mechanisms."
-          action="Developed Headcount budget analytics dashboards and unified local procedures with global SOP alignment directives."
-          result="Reduced reporting latency by 40% and improved budget forecast accuracy within a 2% variance for consecutive quarters."
-          snippet={
-            <Box>
-              <Typography variant="overline" sx={{ fontWeight: 800, color: 'text.secondary', display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                <TableChart fontSize="small" /> HQ ALIGNMENT DASHBOARD SNIPPET
-              </Typography>
-              <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, border: '1px solid #E2E8F0', p: 2, borderRadius: 1, bgcolor: 'white' }}>
-                <Typography variant="caption" sx={{ fontWeight: 800 }}>Metric Category</Typography>
-                <Typography variant="caption" sx={{ fontWeight: 800 }}>Local Status</Typography>
-                <Typography variant="caption" sx={{ fontWeight: 800 }}>HQ Target</Typography>
-                <Typography variant="caption" sx={{ fontWeight: 800 }}>Alignment Score</Typography>
-                <Divider sx={{ gridColumn: 'span 4' }} />
-                <Typography variant="caption">Headcount Accuracy</Typography>
-                <Typography variant="caption" color="success.main" sx={{ fontWeight: 700 }}>98.5%</Typography>
-                <Typography variant="caption">98.0%</Typography>
-                <Typography variant="caption" sx={{ color: 'primary.main', fontWeight: 700 }}>Optimal</Typography>
-              </Box>
-            </Box>
-          }
-        />
-
-        <CaseStudyDeepDive
-          category="RISK MITIGATION"
-          title="Establishing a Safe Workspace: Sexual Harassment Task Force"
-          situation="Identifying the need for proactive cultural safeguards and compliance with emerging preventive regulation frameworks (PPKS)."
-          action="Architected a robust Whistleblowing SOP and chaired the multi-departmental Task Force to ensure unbiased reporting channels."
-          result="Cultivated measurable psychological safety via annual sentiment audits, with 100% of staff trained in preventive measures."
-          snippet={
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                <Policy color="action" />
+        {caseStudiesData.map((study) => (
+          <CaseStudyDeepDive
+            key={study.id}
+            tag={study.tag}
+            title={study.title}
+            details={study.details}
+            headerImage={study.headerImage}
+            snippet={
+              study.id === 1 ? (
                 <Box>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>Policy Implementation Framework</Typography>
-                  <Typography variant="caption" color="text.secondary">Task Force Charter & Confidential Reporting Protocol (v2.0) - Successfully Adopted Q3 2023</Typography>
+                  <Typography variant="overline" sx={{ fontWeight: 800, color: 'text.secondary', display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
+                    <TimelineIcon fontSize="small" /> DISPUTE LIFECYCLE TIMELINE
+                  </Typography>
+                  <Grid container spacing={2} justifyContent="space-around">
+                    {[
+                      { step: '1', name: 'Bipartite', label: 'Internal Negotiation' },
+                      { step: '2', name: 'Mediation', label: 'Manpower Office' },
+                      { step: '3', name: 'PHI', label: 'Court Resolution' },
+                    ].map((item) => (
+                      <Grid item key={item.step} sx={{ textAlign: 'center' }}>
+                        <Box sx={{ width: 32, height: 32, bgcolor: 'black', color: 'white', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 1, fontWeight: 700 }}>
+                          {item.step}
+                        </Box>
+                        <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>{item.name}</Typography>
+                        <Typography variant="caption" color="text.secondary">{item.label}</Typography>
+                      </Grid>
+                    ))}
+                  </Grid>
                 </Box>
-              </Box>
-              <Typography variant="caption" sx={{ fontWeight: 800, color: 'primary.main', cursor: 'pointer' }}>VIEW PROTOCOL →</Typography>
-            </Box>
-          }
-        />
+              ) : study.id === 2 ? (
+                <Box>
+                  <Typography variant="overline" sx={{ fontWeight: 800, color: 'text.secondary', display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
+                    <TableChart fontSize="small" /> HQ ALIGNMENT DASHBOARD SNIPPET
+                  </Typography>
+                  <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, border: '1px solid #E2E8F0', p: 2, borderRadius: 1, bgcolor: 'white' }}>
+                    <Typography variant="caption" sx={{ fontWeight: 800 }}>Metric Category</Typography>
+                    <Typography variant="caption" sx={{ fontWeight: 800 }}>Local Status</Typography>
+                    <Typography variant="caption" sx={{ fontWeight: 800 }}>HQ Target</Typography>
+                    <Typography variant="caption" sx={{ fontWeight: 800 }}>Alignment Score</Typography>
+                    <Divider sx={{ gridColumn: 'span 4' }} />
+                    <Typography variant="caption">Headcount Accuracy</Typography>
+                    <Typography variant="caption" color="success.main" sx={{ fontWeight: 700 }}>98.5%</Typography>
+                    <Typography variant="caption">98.0%</Typography>
+                    <Typography variant="caption" sx={{ color: 'primary.main', fontWeight: 700 }}>Optimal</Typography>
+                  </Box>
+                </Box>
+              ) : study.id === 3 ? (
+                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Policy color="action" />
+                    <Box>
+                      <Typography variant="subtitle2" sx={{ fontWeight: 800 }}>Policy Implementation Framework</Typography>
+                      <Typography variant="caption" color="text.secondary">Task Force Charter & Confidential Reporting Protocol (v2.0) - Successfully Adopted Q3 2023</Typography>
+                    </Box>
+                  </Box>
+                  <Typography variant="caption" sx={{ fontWeight: 800, color: 'primary.main', cursor: 'pointer' }}>VIEW PROTOCOL →</Typography>
+                </Box>
+              ) : null
+            }
+          />
+        ))}
       </Container>
     </Box>
   );
