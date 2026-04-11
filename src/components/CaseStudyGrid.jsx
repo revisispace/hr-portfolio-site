@@ -154,17 +154,7 @@ const CaseStudyGrid = () => {
                       </Grid>
                     </Paper>
 
-                    <Button 
-                      variant="text" 
-                      endIcon={<ArrowForwardIcon />} 
-                      sx={{ 
-                        fontWeight: 900, 
-                        p: 0, 
-                        '&:hover': { bgcolor: 'transparent', color: 'primary.dark' }
-                      }}
-                    >
-                      View Detailed Case Analysis
-                    </Button>
+
                   </CardContent>
                 </Card>
               </Grid>

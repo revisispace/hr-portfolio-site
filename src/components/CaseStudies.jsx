@@ -19,6 +19,7 @@ import {
   ListItemText
 } from '@mui/material';
 import { Close as CloseIcon, FiberManualRecord as BulletIcon } from '@mui/icons-material';
+import impactImage from '../assets/impact-case.jpg';
 
 const caseStudiesData = [
   {
@@ -105,6 +106,7 @@ const caseStudiesData = [
     "id": 5,
     "tag": "ORGANIZATIONAL DEVELOPMENT",
     "title": "Training Program Design & Vendor Coordination",
+    "image": impactImage,
     "summary": "Designed and delivered structured, cross-departmental training programs (soft skills to K3 safety) by optimizing internal resources and vendor partnerships.",
     "modalContent": {
       "situation": "The company aimed to enhance employee capability through structured training programs across multiple competency areas.",
@@ -188,6 +190,19 @@ const CaseStudies = () => {
                   boxShadow: '0 12px 40px rgba(0,0,0,0.1)'
                 }
               }}>
+                {study.image && (
+                  <Box
+                    component="img"
+                    src={study.image}
+                    alt={study.title}
+                    sx={{
+                      width: '100%',
+                      height: 200,
+                      objectFit: 'cover',
+                      borderBottom: '1px solid #E2E8F0'
+                    }}
+                  />
+                )}
                 <CardContent sx={{ p: 4, flexGrow: 1 }}>
                   <Chip 
                     label={study.tag} 
