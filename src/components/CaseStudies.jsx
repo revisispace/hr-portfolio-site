@@ -21,6 +21,8 @@ import {
 import { Close as CloseIcon, FiberManualRecord as BulletIcon } from '@mui/icons-material';
 import impactImage from '../assets/impact-case.jpg';
 import disputeImage from '../assets/dispute-resolution.png';
+import satgasImage from '../assets/satgas-team.jpg';
+import hqImage from '../assets/hq-alignment.jpg';
 
 const caseStudiesData = [
   {
@@ -48,6 +50,7 @@ const caseStudiesData = [
     "id": 2,
     "tag": "GLOBAL OPERATIONS",
     "title": "Cross-Border HR Reporting & HQ Alignment",
+    "image": hqImage,
     "summary": "Standardized regional data formats and managed end-to-end HR reporting to ensure seamless alignment with the multinational headquarters in Singapore.",
     "modalContent": {
       "situation": "Operating under a multinational structure, the HR function needed to ensure accurate and consistent reporting to regional headquarters in Singapore.",
@@ -68,6 +71,7 @@ const caseStudiesData = [
     "id": 3,
     "tag": "COMPLIANCE & ETHICS",
     "title": "Establishing a Safe Workspace: Sexual Harassment Task Force",
+    "image": satgasImage,
     "summary": "Initiated and formulated the official Sexual Harassment Task Force (SATGAS) from the ground up to ensure a compliant, safe, and respectful workplace.",
     "modalContent": {
       "situation": "The organization required a structured and compliant approach to prevent and address workplace sexual harassment.",
@@ -285,20 +289,22 @@ const CaseStudies = () => {
                 >
                   {selectedCase.title}
                 </Typography>
-                <IconButton
-                  aria-label="close"
-                  onClick={handleClose}
-                  sx={{
-                    position: 'absolute',
-                    right: 16,
-                    top: 16,
-                    color: (theme) => theme.palette.grey[500],
-                  }}
-                >
-                  <CloseIcon />
-                </IconButton>
               </DialogTitle>
               <DialogContent>
+                {selectedCase.image && (
+                  <Box
+                    component="img"
+                    src={selectedCase.image}
+                    alt={selectedCase.title}
+                    sx={{
+                      width: '100%',
+                      height: { xs: 200, md: 400 },
+                      objectFit: 'cover',
+                      borderRadius: 2,
+                      mb: 4
+                    }}
+                  />
+                )}
                 <Box sx={{ mb: 5 }}>
                   <Typography 
                     variant="overline" 
