@@ -20,12 +20,14 @@ import {
 } from '@mui/material';
 import { Close as CloseIcon, FiberManualRecord as BulletIcon } from '@mui/icons-material';
 import impactImage from '../assets/impact-case.jpg';
+import disputeImage from '../assets/dispute-resolution.png';
 
 const caseStudiesData = [
   {
     "id": 1,
     "tag": "INDUSTRIAL RELATIONS",
     "title": "End-to-End Dispute Resolution: From Bipartite to PHI",
+    "image": disputeImage,
     "summary": "Led complex labor dispute resolutions, successfully securing an interlocutory ruling that protected the company from significant legal and financial liabilities.",
     "modalContent": {
       "situation": "The company was involved in an industrial relations dispute that escalated beyond internal resolution, requiring formal legal proceedings under Indonesian labor law.",
